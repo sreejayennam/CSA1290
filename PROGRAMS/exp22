@@ -1,19 +1,25 @@
-#include<stdio.h>    
-#include<stdlib.h>  
-int main(){  
-int a[10],n,i;    
-system ("cls");  
-printf("Enter the decimal number: ");    
-scanf("%d",&n);    
-for(i=0;n>0;i++)    
-{    
-a[i]=n%2;    
-n=n/2;    
-}    
-printf("\nBinary Number =");    
-for(i=i-1;i>=0;i--)    
-{    
-printf("%d",a[i]);    
-}    
-return 0;  
+#include <stdio.h>
+int main()
+{
+    long long decimal, tempDecimal, octal;
+    int i, rem, place = 1;
+    octal = 0;
+    printf("Enter any decimal number: ");
+    scanf("%lld", &decimal);
+
+    tempDecimal = decimal;
+
+    while(tempDecimal > 0)
+    {
+        rem = tempDecimal % 8;
+
+        octal = (rem * place) + octal;
+
+        tempDecimal /= 8;
+
+        place *= 10;
+    }
+
+    printf("\nDecimal number = %lld\n", decimal);
+    printf("Octal number = %lld", octal);
 }
